@@ -18,12 +18,9 @@ export default function WorkspaceCard() {
             <span className="text-zinc-300 group-hover:text-white transition-colors">Zed</span>
           </div>
           <div className="h-px w-full bg-white/5 my-4 group-hover:bg-white/10 transition-colors" />
-          <div className="flex flex-wrap gap-2 pt-1">
-            {['Go', 'PostgreSQL', 'Redis', 'Linux', 'Docker'].map(tech => (
-              <span key={tech} className="text-[10px] px-2.5 py-1 rounded-md bg-black/40 text-zinc-400 border border-white/5 group-hover:border-white/10 group-hover:text-zinc-300 transition-all duration-300">
-                {tech}
-              </span>
-            ))}
+          <div className="flex justify-between items-center text-sm pt-1">
+            <span className="text-zinc-400">Currently</span>
+            <span className="text-zinc-300 group-hover:text-white transition-colors">learning Rust</span>
           </div>
         </div>
       </div>

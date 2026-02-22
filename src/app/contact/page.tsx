@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import UnderConstruction from '@/components/shared/under-construction'
+import ContactInfo from '@/components/contact/contact-info'
 import PageTransition from '@/components/shared/page-transition'
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageTransition>
-      <UnderConstruction title="Contact" />
+      <ContactInfo />
     </PageTransition>
   )
 }

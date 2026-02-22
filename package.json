@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "personal portfolio — crafting digital permanence",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "dev": "next dev --turbopack --port 3000",
     "build": "next build",

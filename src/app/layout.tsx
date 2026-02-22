@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import GlassPanel from '@/components/shared/glass-panel'
 import Navbar from '@/components/nav/navbar'
+import Footer from '@/components/shared/footer'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -49,6 +50,7 @@ export default function RootLayout({
           <GlassPanel>
             <Navbar />
             <main className="flex-1 flex flex-col">{children}</main>
+            <Footer />
           </GlassPanel>
         </div>
       </body>

@@ -59,9 +59,9 @@ export default function PostList() {
               {posts.map((post, i) => (
                 <motion.article
                   key={i}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, filter: 'blur(6px)' }}
+                  animate={{ opacity: 1, filter: 'blur(0px)' }}
+                  transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => openPost(i)}
                   className="group cursor-pointer p-6 -mx-6 rounded-2xl hover:bg-white/[0.02] transition-all duration-500"
                 >
