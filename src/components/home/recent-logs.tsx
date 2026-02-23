@@ -25,7 +25,7 @@ export default function RecentLogs({ posts }: RecentLogsProps) {
       </div>
       <div className="space-y-3">
         {posts.map((post, i) => (
-          <Link key={i} href="/log" className="group flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300">
+          <Link key={post.slug} href={`/log/${post.slug}`} className="group flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300">
             <span className="text-sm text-zinc-300 group-hover:text-white transition-colors font-medium">{post.title}</span>
             <div className="flex items-center gap-3">
               <time className="text-[11px] text-zinc-500">{post.date}</time>
