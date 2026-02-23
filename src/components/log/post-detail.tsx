@@ -1,8 +1,10 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { Twitter, Github } from 'lucide-react'
-import type { Post } from '@/data/posts'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { Github } from 'lucide-react'
+import type { Post } from '@/lib/posts'
 
 interface PostDetailProps {
   post: Post
@@ -38,17 +40,16 @@ export default function PostDetail({ post, onBack }: PostDetailProps) {
         </h2>
       </article>
 
-      <div className="prose prose-invert max-w-none">
-        <div className="font-reading text-zinc-400 leading-relaxed text-lg space-y-6 whitespace-pre-line">
+      <div className="prose-custom text-zinc-400 leading-relaxed text-lg">
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {post.content}
-        </div>
+        </ReactMarkdown>
       </div>
 
       <div className="pt-12 border-t border-white/5 flex justify-between items-center">
         <div className="flex items-center gap-4">
           <span className="text-[10px] text-zinc-600 uppercase tracking-widest">Share</span>
           <div className="flex gap-3">
-            <Twitter size={16} className="text-zinc-500 hover:text-white cursor-pointer transition-colors" />
             <Github size={16} className="text-zinc-500 hover:text-white cursor-pointer transition-colors" />
           </div>
         </div>

@@ -3,10 +3,14 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
-import { posts } from '@/data/posts'
+import type { Post } from '@/lib/posts'
 import PostDetail from './post-detail'
 
-export default function PostList() {
+interface PostListProps {
+  posts: Post[]
+}
+
+export default function PostList({ posts }: PostListProps) {
   const [selectedPost, setSelectedPost] = useState<null | number>(null)
   const [direction, setDirection] = useState(1)
 
@@ -58,7 +62,7 @@ export default function PostList() {
             <div className="space-y-12">
               {posts.map((post, i) => (
                 <motion.article
-                  key={i}
+                  key={post.slug}
                   initial={{ opacity: 0, filter: 'blur(6px)' }}
                   animate={{ opacity: 1, filter: 'blur(0px)' }}
                   transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -86,12 +90,6 @@ export default function PostList() {
                   <div className="mt-8 h-px w-full bg-white/5" />
                 </motion.article>
               ))}
-            </div>
-
-            <div className="pt-8 flex justify-center">
-              <button className="text-[10px] uppercase tracking-[0.3em] text-zinc-600 hover:text-white transition-colors duration-300">
-                Load Archive
-              </button>
             </div>
           </motion.div>
         ) : (

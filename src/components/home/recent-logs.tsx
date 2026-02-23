@@ -3,13 +3,15 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { motion } from 'motion/react'
-import { posts } from '@/data/posts'
+import type { Post } from '@/lib/posts'
 
 const ease = [0.16, 1, 0.3, 1] as const
 
-export default function RecentLogs() {
-  const recentPosts = posts.slice(0, 3)
+interface RecentLogsProps {
+  posts: Post[]
+}
 
+export default function RecentLogs({ posts }: RecentLogsProps) {
   return (
     <motion.div
       initial={{ opacity: 0, filter: 'blur(6px)' }}
@@ -22,7 +24,7 @@ export default function RecentLogs() {
         <span>Recent Logs</span>
       </div>
       <div className="space-y-3">
-        {recentPosts.map((post, i) => (
+        {posts.map((post, i) => (
           <Link key={i} href="/log" className="group flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300">
             <span className="text-sm text-zinc-300 group-hover:text-white transition-colors font-medium">{post.title}</span>
             <div className="flex items-center gap-3">

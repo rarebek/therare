@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getPosts } from '@/lib/posts'
 import PostList from '@/components/log/post-list'
 import PageTransition from '@/components/shared/page-transition'
 
@@ -7,10 +8,12 @@ export const metadata: Metadata = {
   description: 'Notes on systems, tools, and the philosophy of building things that last.',
 }
 
-export default function LogPage() {
+export default async function LogPage() {
+  const posts = await getPosts()
+
   return (
     <PageTransition>
-      <PostList />
+      <PostList posts={posts} />
     </PageTransition>
   )
 }
