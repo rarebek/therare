@@ -1,8 +1,16 @@
+'use client'
+
 import { Terminal } from 'lucide-react'
+import { motion } from 'motion/react'
 
 export default function WorkspaceCard() {
   return (
-    <div className="space-y-5">
+    <motion.div
+      initial={{ opacity: 0, filter: 'blur(6px)' }}
+      animate={{ opacity: 1, filter: 'blur(0px)' }}
+      transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className="space-y-5"
+    >
       <div className="flex items-center gap-2 text-xs text-zinc-500 uppercase tracking-widest">
         <Terminal size={12} />
         <span>Workspace</span>
@@ -24,6 +32,6 @@ export default function WorkspaceCard() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

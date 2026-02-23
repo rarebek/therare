@@ -1,12 +1,22 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import { motion } from 'motion/react'
 import { posts } from '@/data/posts'
+
+const ease = [0.16, 1, 0.3, 1] as const
 
 export default function RecentLogs() {
   const recentPosts = posts.slice(0, 3)
 
   return (
-    <div className="space-y-5 font-reading">
+    <motion.div
+      initial={{ opacity: 0, filter: 'blur(6px)' }}
+      animate={{ opacity: 1, filter: 'blur(0px)' }}
+      transition={{ delay: 0.35, duration: 0.7, ease }}
+      className="space-y-5 font-reading"
+    >
       <div className="flex items-center gap-2 text-xs text-zinc-500 uppercase tracking-widest">
         <span className="w-1 h-1 rounded-full bg-zinc-500" />
         <span>Recent Logs</span>
@@ -22,6 +32,6 @@ export default function RecentLogs() {
           </Link>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
