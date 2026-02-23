@@ -14,8 +14,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s — therare.',
-    default: 'therare. — Crafting digital permanence',
+    template: 'therare.',
+    default: 'therare.',
   },
   description: 'Personal portfolio — crafting digital permanence.',
   openGraph: {
